@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Not Fight Club</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Регистрация -->
+  <section id="register" class="page active">
+    <h1>Регистрация</h1>
+    <input type="text" id="playerNameInput" placeholder="Введите имя">
+    <button onclick="registerPlayer()">Войти</button>
+  </section>
+
+  <!-- Домашняя страница -->
+  <section id="home" class="page">
+    <h1>Привет, <span id="playerNameDisplay"></span></h1>
+    <button onclick="startFight()">Бой</button>
+    <button onclick="showPage('character')">Персонаж</button>
+    <button onclick="showPage('settings')">Настройки</button>
+  </section>
+
+  <!-- Персонаж -->
+  <section id="character" class="page">
+    <h1>Персонаж</h1>
+    <img id="avatar" src="assets/avatar1.png" alt="Аватар" width="100">
+    <button onclick="changeAvatar()">Сменить аватар</button>
+    <p>Имя: <span id="charName"></span></p>
+    <p>Победы: <span id="wins">0</span> | Поражения: <span id="losses">0</span></p>
+    <button onclick="showPage('home')">Назад</button>
+  </section>
+
+  <!-- Настройки -->
+  <section id="settings" class="page">
+    <h1>Настройки</h1>
+    <input type="text" id="newName" placeholder="Новое имя">
+    <button onclick="updateName()">Сменить имя</button>
+    <button onclick="showPage('home')">Назад</button>
+  </section>
+
+  <!-- Бой -->
+  <section id="fight" class="page">
+    <h1>Бой</h1>
+    <div class="fight-panel">
+      <div>
+        <h3 id="playerTitle"></h3>
+        <img id="playerFightAvatar" src="assets/avatar1.png" alt="Игрок" width="100">
+        <p>HP: <span id="playerHP">100</span></p>
+      </div>
+      <div>
+        <h3 id="enemyTitle"></h3>
+        <img id="enemyFightAvatar" src="" alt="Враг" width="100">
+        <p>HP: <span id="enemyHP">100</span></p>
+      </div>
+    </div>
+
+    <h3>Атака и защита</h3>
+    <div class="zones">
+      <label><input type="radio" name="attack" value="Голова">Голова</label>
+      <label><input type="radio" name="attack" value="Тело">Тело</label>
+      <label><input type="radio" name="attack" value="Ноги">Ноги</label>
+    </div>
+    <div class="zones">
+      <label><input type="checkbox" name="defend" value="Голова">Голова</label>
+      <label><input type="checkbox" name="defend" value="Тело">Тело</label>
+      <label><input type="checkbox" name="defend" value="Ноги">Ноги</label>
+    </div>
+    <button onclick="makeMove()">Атаковать</button>
+
+    <h3>Лог</h3>
+    <div id="battleLog" class="log"></div>
+
+    <button onclick="endFight()">Сдаться</button>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
